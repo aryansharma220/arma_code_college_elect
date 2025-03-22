@@ -40,7 +40,7 @@ A secure and efficient web-based election platform designed specifically for col
 ## Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/aryansharma220/Arma_Code_0_P1
+git clone https://github.com/aryansharma220/arma_code_college_elect
 ```
 
 2. Install dependencies:
