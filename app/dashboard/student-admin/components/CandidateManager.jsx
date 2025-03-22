@@ -12,6 +12,24 @@ export default function CandidateManager() {
 
   useEffect(() => {
     loadElections();
+    
+    // Set up SSE connection
+    const eventSource = new EventSource('/api/elections/updates');
+    
+    eventSource.onmessage = (event) => {
+      if (event.data === 'connected') return;
+      
+      const update = JSON.parse(event.data);
+      
+      if (update.type === 'candidateAdded' || update.type === 'candidateRemoved') {
+        // Reload elections data when candidates change
+        loadElections();
+      }
+    };
+
+    return () => {
+      eventSource.close();
+    };
   }, []);
 
   const loadElections = async () => {

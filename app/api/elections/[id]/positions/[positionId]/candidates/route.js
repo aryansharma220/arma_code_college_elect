@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import eventEmitter from '@/lib/eventEmitter';
 
 const electionsPath = path.join(process.cwd(), 'lib', 'elections.json');
 
@@ -24,6 +25,14 @@ export async function POST(request, { params }) {
     data.active_elections[electionIndex].positions[positionIndex].candidates.push(newCandidate);
     await fs.writeFile(electionsPath, JSON.stringify(data, null, 2));
 
+    // Emit event after successful addition
+    eventEmitter.emit('electionUpdate', {
+      type: 'candidateAdded',
+      electionId: id,
+      positionId,
+      candidate: newCandidate
+    });
+
     return Response.json(newCandidate);
   } catch (error) {
     return Response.json({ error: 'Failed to add candidate' }, { status: 500 });
@@ -44,6 +53,14 @@ export async function DELETE(request, { params }) {
 
     position.candidates = position.candidates.filter(c => c.id !== candidateId);
     await fs.writeFile(electionsPath, JSON.stringify(data, null, 2));
+
+    // Emit event after successful deletion
+    eventEmitter.emit('electionUpdate', {
+      type: 'candidateRemoved',
+      electionId: id,
+      positionId,
+      candidateId
+    });
 
     return Response.json({ message: 'Candidate deleted successfully' });
   } catch (error) {

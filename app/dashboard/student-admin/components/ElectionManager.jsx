@@ -15,6 +15,21 @@ export default function ElectionManager() {
 
   useEffect(() => {
     loadElections();
+    
+    // Set up SSE connection
+    const eventSource = new EventSource('/api/elections/updates');
+    
+    eventSource.onmessage = (event) => {
+      if (event.data === 'connected') return;
+      
+      const update = JSON.parse(event.data);
+      // Reload elections data for any election-related update
+      loadElections();
+    };
+
+    return () => {
+      eventSource.close();
+    };
   }, []);
 
   const loadElections = async () => {
