@@ -14,7 +14,8 @@
     ],
     "assignedBy": "prof.kumar@college.edu",
     "assignedDate": "2023-08-15",
-    "password": "admin123"
+    "password": "admin123",
+    "hashedPassword": "$2a$10$dQmf4tVvTzV8zZVfG3lB8.Ys4AzH0oJtla/mB.R9ERCc88a5hRD2q"
   },
   {
     "id": "A1002",
@@ -30,7 +31,8 @@
     ],
     "assignedBy": "prof.gupta@college.edu",
     "assignedDate": "2023-07-22",
-    "password": "admin123"
+    "password": "admin123",
+    "hashedPassword": "$2a$10$YfzRtDpvZpUBjc9qrGG6GuPVL5OpjDY3bJ1P.1YyBwZKqfJ6Qwk2W"
   },
   {
     "id": "A1003",
