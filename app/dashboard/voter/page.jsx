@@ -223,6 +223,21 @@ function VoterDashboard() {
         throw new Error('You have already voted in this election');
       }
 
+      // Submit votes to API
+      const response = await fetch('/api/votes/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          electionId: activeElection.id,
+          votes: selectedCandidates,
+          voterId: voter.id
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit vote');
+      }
+
       // Store vote in localStorage
       localStorage.setItem(`voted_${activeElection.id}`, 'true');
       

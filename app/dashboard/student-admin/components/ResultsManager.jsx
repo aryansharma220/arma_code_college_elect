@@ -14,12 +14,12 @@ export default function ResultsManager() {
 
   useEffect(() => {
     loadElections();
-    // Set up polling interval for real-time updates
+    // Set up polling interval for real-time updates every 5 seconds
     const interval = setInterval(() => {
       if (selectedElection) {
         fetchResults(selectedElection.id);
       }
-    }, 5000); // Poll every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [selectedElection]);
