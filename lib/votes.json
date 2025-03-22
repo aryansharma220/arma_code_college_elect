@@ -1,0 +1,58 @@
+{
+  "votes": {
+    "cr_2024_ns_1": {
+      "cr_male": {
+        "c1": {
+          "votes": 45,
+          "lastUpdated": "2025-03-21T12:30:00Z"
+        },
+        "c2": {
+          "votes": 32,
+          "lastUpdated": "2025-03-21T12:30:00Z"
+        }
+      },
+      "cr_female": {
+        "c3": {
+          "votes": 38,
+          "lastUpdated": "2025-03-21T12:30:00Z"
+        },
+        "c4": {
+          "votes": 41,
+          "lastUpdated": "2025-03-21T12:30:00Z"
+        }
+      }
+    },
+    "mess_rep_2024": {
+      "mess_rep": {
+        "m1": {
+          "votes": 156,
+          "lastUpdated": "2025-03-21T12:30:00Z"
+        },
+        "m2": {
+          "votes": 142,
+          "lastUpdated": "2025-03-21T12:30:00Z"
+        },
+        "m3": {
+          "votes": 128,
+          "lastUpdated": "2025-03-21T12:30:00Z"
+        },
+        "m4": {
+          "votes": 134,
+          "lastUpdated": "2025-03-21T12:30:00Z"
+        }
+      }
+    }
+  },
+  "voterStatus": {
+    "cr_2024_ns_1": {
+      "totalEligibleVoters": 120,
+      "totalVoted": 78,
+      "lastUpdated": "2025-03-21T12:30:00Z"
+    },
+    "mess_rep_2024": {
+      "totalEligibleVoters": 450,
+      "totalVoted": 280,
+      "lastUpdated": "2025-03-21T12:30:00Z"
+    }
+  }
+}
